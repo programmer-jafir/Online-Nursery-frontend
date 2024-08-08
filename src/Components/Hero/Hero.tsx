@@ -1,5 +1,6 @@
 import React from 'react';
 import bannerImg from './banner.jpg'
+import { Button } from '../ui/button';
 
 const Hero: React.FC = () => {
     return (
@@ -14,9 +15,9 @@ const Hero: React.FC = () => {
             <p className="mt-4 text-gray-600 text-lg md:text-xl">
             Discover and shop for plants, flowers, and gardening essentials at Plant Life Nursery!
             </p>
-            <button className="mt-6 px-6 py-3 bg-green-500 text-white rounded-full text-lg hover:bg-green-400 transition duration-300">
+            <Button className="mt-6 px-6 py-3 bg-green-500 text-white rounded-full text-lg hover:bg-green-400 transition duration-300">
               Order Now
-            </button>
+            </Button>
           </div>
           <div className="mt-8 md:mt-0 md:w-1/2">
             <img
