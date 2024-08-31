@@ -1,9 +1,9 @@
 import { Button } from "../ui/button";
-import contact from "./Contact.jpg";
+import contact from "../../assets/Contact.jpg";
 
 const Contact: React.FC = () => {
     return (
-        <div id="contact" className="mb-8">
+        <div id="contact" className="mb-8 bg-gray-100">
             <h1 className="text-4xl text-green-500 font-bold text-center mb-10">Contact Us</h1>
             <div className="flex flex-col md:flex-row items-center justify-evenly min-h-screen bg-gray-100 p-6">
         <div className="md:w-1/2 flex justify-center mb-6 md:mb-0">

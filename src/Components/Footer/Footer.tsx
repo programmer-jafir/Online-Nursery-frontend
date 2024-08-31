@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white">
+    <footer className="bg-gray-800 text-white ">
       <div className="max-w-6xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-between">
           {/* Column 1 */}
