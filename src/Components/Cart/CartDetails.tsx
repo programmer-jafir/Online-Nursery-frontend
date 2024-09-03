@@ -2,9 +2,12 @@
 import { Minus, Plus, Trash2 } from "lucide-react";
 
 import { useAppDispatch } from "../../redux/hook";
-import { updateQuantity } from "../../redux/features/cartSlice";
+import { clearProduct, updateQuantity } from "../../redux/features/cartSlice";
 
 const CartDetails = ({ product }: any) => {
+  const handleClearProduct = (productId: string) => {
+    dispatch(clearProduct({ _id: productId }));
+  };
 const dispatch = useAppDispatch()
   const handleQuantity =(type:string,_id:string)=>{
     const payload = {type,_id}
@@ -37,7 +40,7 @@ const dispatch = useAppDispatch()
         </button>
       </div>
       <button
-        // onClick={(e) => handleRemove(e, product._id)}
+        onClick={(e) => handleClearProduct( product._id)}
         className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
       >
         <Trash2 size={18} />

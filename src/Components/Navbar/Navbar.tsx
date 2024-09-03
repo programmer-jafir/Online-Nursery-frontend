@@ -35,6 +35,8 @@ const Navbar: React.FC = () => {
   }, [searchTerm, dispatch]);
 
   const products = useAppSelector((store) => store.cart.products);
+  const selectedItems = useAppSelector((state) => state.cart.selectedItems);
+
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTermLocal(e.target.value);
@@ -86,7 +88,7 @@ const Navbar: React.FC = () => {
                 <ShoppingCart className="items-end ml-10"  size={24} />
               </Link>
               <span className="rounded-full absolute top-[-10px] left-[60px]  text-black text-center size-[25px]">
-              {products.length}
+              {selectedItems}
               </span>
             </div>
           </div>
@@ -121,7 +123,7 @@ const Navbar: React.FC = () => {
             ))}
         <li className="my-4"><PostCardModal/></li>            
         <li className="relative"><Link to="/cart" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"><ShoppingCart/></Link><span className="rounded-full absolute top-[-10px] left-[25px]  text-black text-center size-[25px]">
-        {products.length}
+        {selectedItems}
               </span></li>
         <li>
             <input
