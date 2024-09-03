@@ -9,6 +9,7 @@ export const baseApi = createApi({
                 url: '/product',
                 method:'GET',
             }),
+            providesTags: ['Products'],
             
         }),
         addProduct : builder.mutation({
@@ -17,13 +18,9 @@ export const baseApi = createApi({
                 method:'POST',
                 body: data,
             }),
+            invalidatesTags: ['Products'],
         }),
         editProduct : builder.mutation({
-            // query: (data) => (console.log("inside data=>", data),{
-            //     url: '/product/:id',
-            //     method:'PUT',
-            //     body: data,
-            // }),
             
             query: (data) => {
                 console.log("inside data=>", data.updatedProduct);
@@ -33,6 +30,7 @@ export const baseApi = createApi({
                     body: data.updatedProduct,   
                 };
             },
+            invalidatesTags: ['Products'],
         }),
     }),
 });

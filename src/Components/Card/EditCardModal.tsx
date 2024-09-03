@@ -11,7 +11,7 @@ import {
  } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { useEditProductMutation } from "@/redux/api/api";
+import { useEditProductMutation, useGetProductsQuery } from "@/redux/api/api";
 import { editProduct } from "@/redux/features/productSlice";
 import { useAppDispatch } from "@/redux/hook";
 
@@ -39,25 +39,20 @@ const EditCardModal: React.FC<ProductCardProps> = ({ product }) => {
 
   // For Server 
   const [editProduct, {data, isLoading, isError, isSuccess}] = useEditProductMutation();
+  const { refetch } = useGetProductsQuery(); // To refetch products
   console.log("edit:",{data,isLoading, isError,isSuccess})
-  const onSubmit = (e: FormEvent) =>{
+  const onSubmit = async(e: FormEvent) =>{
     e.preventDefault();
-    // const productDetails ={
-      
-    //   image: image ,
-    //   name: name,
-    //   description: description,
-    //    price:price,
-    //     category:category,
-    //      quantity:quantity,
-    //      rating: rating
-    //     }
-        // for local state
-    // dispatch(addProduct(productDetails))
 
     //for server
-    let _id;
-    editProduct(_id, product);
+    try {
+      let _id;
+      await editProduct(_id, product).unwrap();
+      console.log('Edit Product added successfully');
+      refetch(); // Refetch the products and update the UI
+    } catch (error) {
+      console.error('Failed to edit product:', error);
+    }
   }
 
     return (

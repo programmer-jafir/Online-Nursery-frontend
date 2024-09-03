@@ -12,9 +12,7 @@ import {
  } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { useAppDispatch } from "../../redux/hook";
-import { addProduct } from "../../redux/features/productSlice";
-import { useAddProductMutation } from "../../redux/api/api";
+import { useAddProductMutation, useGetProductsQuery } from "../../redux/api/api";
 
 
 const PostCardModal = () => {
@@ -31,8 +29,9 @@ const PostCardModal = () => {
 
   // For Server 
   const [addProduct, {data, isLoading, isError, isSuccess}] = useAddProductMutation();
+  const { refetch } = useGetProductsQuery(); // To refetch products
   console.log({data,isLoading, isError,isSuccess})
-  const onSubmit = (e: FormEvent) =>{
+  const onSubmit = async(e: FormEvent) =>{
     e.preventDefault();
     const productDetails ={
       image: image ,
@@ -47,7 +46,13 @@ const PostCardModal = () => {
     // dispatch(addProduct(productDetails))
 
     //for server
-    addProduct(productDetails);
+    try {
+      await addProduct(productDetails).unwrap();
+      console.log('Product added successfully');
+      refetch(); // Refetch the products and update the UI
+    } catch (error) {
+      console.error('Failed to add product:', error);
+    }
   }
     return (
         <Dialog>
@@ -143,7 +148,7 @@ const PostCardModal = () => {
         </div>
         <div>
           <DialogClose asChild>
-          <Button type="submit"  className="hover:bg-lime-600 bg-green-500" type="submit">Publish</Button>
+          <Button type="submit"  className="hover:bg-lime-600 bg-green-500">Publish</Button>
           </DialogClose>
         </div>
        </form>
