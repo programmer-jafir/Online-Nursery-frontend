@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
             Discover and shop for plants, flowers, and gardening essentials at Plant Life Nursery!
             </p>
             <Button className="mt-6 px-6 py-3 bg-green-500 text-white rounded-full text-lg hover:bg-green-400 transition duration-300">
-              Order Now
+              <a href="/products">Order Now</a>
             </Button>
           </div>
           <div className="mt-8 md:mt-0 md:w-1/2">

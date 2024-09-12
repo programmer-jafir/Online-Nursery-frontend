@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type TProduct = {
+export type TProduct = {
   _id?: string;
   image: string;
   name: string;
@@ -25,6 +25,7 @@ const productSlice = createSlice({
     addProduct: (state, action: PayloadAction<TProduct>) => {
       state.products.push({...action.payload});
     },
+  
   editProduct: (state, action) => { 
     const { _id, updatedProduct } = action.payload;
       const existingProductIndex = state.products.findIndex(product => product._id === _id);
@@ -36,7 +37,6 @@ const productSlice = createSlice({
 
       }
     },
-  
 }
 });
 

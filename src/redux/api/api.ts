@@ -2,14 +2,16 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 export const baseApi = createApi({
     reducerPath: 'baseApi',
-    baseQuery: fetchBaseQuery({baseUrl: "http://localhost:5000/api"}),// https://plant-life-backend.vercel.app/api
+    baseQuery: fetchBaseQuery({baseUrl: "https://plant-life-backend.vercel.app/api",
+        credentials:"include",
+    }),
     endpoints: (builder) => ({
         getProducts : builder.query({
             query: () => ({
                 url: '/product',
                 method:'GET',
             }),
-            providesTags: ['Products'],
+            // providesTags: ['Products'],
             
         }),
         addProduct : builder.mutation({
@@ -18,7 +20,7 @@ export const baseApi = createApi({
                 method:'POST',
                 body: data,
             }),
-            invalidatesTags: ['Products'],
+            // invalidatesTags: ['Products'],
         }),
         editProduct : builder.mutation({
             
@@ -30,9 +32,30 @@ export const baseApi = createApi({
                     body: data.updatedProduct,   
                 };
             },
-            invalidatesTags: ['Products'],
+            // invalidatesTags: ['Products'],
         }),
+        getaProduct : builder.query({
+            query: (_id: string) => ({
+                url: `/product/${_id}`,
+                method:'GET',
+            }),
+            
+        }),
+        deleteaProduct : builder.mutation({
+            query: (_id: string) => ({
+                url: `/product/${_id}`,
+                method:'DELETE',
+            }),
+            
+        }),
+        createOrder: builder.mutation({
+            query: (data) => ({
+              url: "/orders",
+              method: "POST",
+              body: data,
+            }),
+          }),
     }),
 });
 
-export const {useGetProductsQuery, useAddProductMutation, useEditProductMutation} = baseApi;
+export const {useGetProductsQuery, useAddProductMutation, useEditProductMutation, useGetaProductQuery, useDeleteaProductMutation, useCreateOrderMutation} = baseApi;

@@ -6,7 +6,9 @@ import About from "@/Components/About/About";
 import Contact from "@/Components/Contact/Contact";
 import Cart from "@/page/Cart";
 import Update from "../page/Update";
-
+import UserInfo from "@/page/UserInfo";
+import CardDetails from "@/page/CardDetails";
+import OrderSuccessPage from "@/page/OrderSuccessPage";
 
 export const router = createBrowserRouter([
     {
@@ -18,12 +20,16 @@ export const router = createBrowserRouter([
           element:<Home/>
         },
         {
-          path: '/product',
+          path: '/products',
           element:<AllProducts/>
         },
         {
-          path: '/product/:id',
+          path: '/products/:id',
           element:<Update/>
+        },
+        {
+          path: '/product-details/:id',
+          element:<CardDetails/>
         },
         {
           path: '/about',
@@ -36,6 +42,14 @@ export const router = createBrowserRouter([
         {
           path: '/cart',
           element:<Cart/>
+        },
+        {
+          path: '/user-info',
+          element:<UserInfo/>
+        },
+        {
+          path: '/order-success',
+          element:<OrderSuccessPage/>
         },
       ]
     }

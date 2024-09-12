@@ -1,6 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import cartReduser from './features/cartSlice';
 import productReducer from './features/productSlice';
+import orderReducer from './features/orderSlice'; 
 import searchReducer from './features/searchSlice';
 import { baseApi } from './api/api';
 
@@ -11,6 +12,7 @@ export const store = configureStore({
         search: searchReducer,
         cart: cartReduser,
         product: productReducer,
+        order: orderReducer,
     },
     middleware: (getDefaultMiddlewares) =>
         getDefaultMiddlewares().concat(baseApi.middleware)

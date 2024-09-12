@@ -12,8 +12,8 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { path: "/", name: "Home" },
     { path: "/about", name: "About" },
-    { path: "/contact", name: "Contact Us" },
-    { path: "/product", name: "Products" },
+    { path: "/contact", name: "Contact" },
+    { path: "/products", name: "Products" },
   ];
 
   const handleLinkClick = (path: string) => {
@@ -34,7 +34,6 @@ const Navbar: React.FC = () => {
     };
   }, [searchTerm, dispatch]);
 
-  const products = useAppSelector((store) => store.cart.products);
   const selectedItems = useAppSelector((state) => state.cart.selectedItems);
 
 
@@ -43,7 +42,7 @@ const Navbar: React.FC = () => {
   };
   return (
     <div>
-        <nav className="bg-white shadow-lg">
+        <nav className="bg-white shadow-lg ">
     <div className="max-w-6xl mx-auto px-4">
       <div className="flex justify-between items-center">
         <div className="flex space-x-7">
