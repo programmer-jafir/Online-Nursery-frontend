@@ -1,6 +1,9 @@
 import { FormEvent, useState} from 'react';
 import { useEditProductMutation, useGetProductsQuery } from '../redux/api/api';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Label } from '@/Components/ui/label';
+import { Input } from '@/Components/ui/input';
+import { Button } from '@/Components/ui/button';
 
 const Update = () => {
   const [image, setImage] = useState('');
@@ -52,8 +55,8 @@ const Update = () => {
         <h2 className="text-2xl font-semibold mb-4 text-center">Edit Product</h2>
         <form onSubmit={handleUpdate} className="space-y-4 items-center">
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="img">Product Image</label>
-            <input
+            <Label className="block text-sm font-medium text-gray-700" htmlFor="img">Product Image</Label>
+            <Input
               onChange={e => setImage(e.target.value)}
               value={image}
               type="url"
@@ -63,8 +66,8 @@ const Update = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="name">Product Name</label>
-            <input
+            <Label className="block text-sm font-medium text-gray-700" htmlFor="name">Product Name</Label>
+            <Input
               onChange={e => setName(e.target.value)}
               value={name}
               type="text"
@@ -74,7 +77,7 @@ const Update = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="description">Product Description</label>
+            <Label className="block text-sm font-medium text-gray-700" htmlFor="description">Product Description</Label>
             <textarea
               onChange={e => setDescription(e.target.value)}
               value={description}
@@ -85,8 +88,8 @@ const Update = () => {
             ></textarea>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="price">Product Price</label>
-            <input
+            <Label className="block text-sm font-medium text-gray-700" htmlFor="price">Product Price</Label>
+            <Input
               onChange={e => setPrice(e.target.value)}
               value={price}
               type="number"
@@ -96,8 +99,8 @@ const Update = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="catagory">Product Category</label>
-            <input
+            <Label className="block text-sm font-medium text-gray-700" htmlFor="catagory">Product Category</Label>
+            <Input
               onChange={e => setCategory(e.target.value)}
               value={category}
               type="text"
@@ -107,8 +110,8 @@ const Update = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="quantity">Product Quantity</label>
-            <input
+            <Label className="block text-sm font-medium text-gray-700" htmlFor="quantity">Product Quantity</Label>
+            <Input
               onChange={e => setQuantity(e.target.value)}
               value={quantity}
               type="number"
@@ -118,8 +121,8 @@ const Update = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="rating">Review</label>
-            <input
+            <Label className="block text-sm font-medium text-gray-700" htmlFor="rating">Review</Label>
+            <Input
               onChange={e => setRating(e.target.value)}
               value={rating}
               type="number"
@@ -129,12 +132,12 @@ const Update = () => {
             />
           </div>
           <div>
-            <button
+            <Button
               type="submit"
               className="w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
               Save Changes
-            </button>
+            </Button>
           </div>
         </form>
       </div>

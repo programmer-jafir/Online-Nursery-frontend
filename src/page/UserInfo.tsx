@@ -1,3 +1,4 @@
+import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
 import { useCreateOrderMutation, useGetProductsQuery } from "@/redux/api/api";
@@ -205,13 +206,13 @@ const UserInfo = () => {
           </div>
 
           <div>
-            <button
+            <Button
               type="submit"
               className="w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
               disabled={loading  || isDisabled}
             >
               {loading ? "Placing Order Cash on Delivery..." : "Place Order Cash on Delivery"}
-            </button>
+            </Button>
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
         </form>

@@ -24,12 +24,11 @@ const PostCardModal = () => {
   const [quantity, setQuantity]= useState('');
   const [rating, setRating]= useState('');
 
-  // For local Server
-  // const dispatch = useAppDispatch();
+
 
   // For Server 
   const [addProduct, {data, isLoading, isError, isSuccess}] = useAddProductMutation();
-  const { refetch } = useGetProductsQuery(); // To refetch products
+  const { refetch } = useGetProductsQuery(); 
   console.log({data,isLoading, isError,isSuccess})
   const onSubmit = async(e: FormEvent) =>{
     e.preventDefault();
@@ -42,14 +41,13 @@ const PostCardModal = () => {
          quantity:quantity,
          rating: rating
         }
-        // for local state
-    // dispatch(addProduct(productDetails))
+ 
 
     //for server
     try {
       await addProduct(productDetails).unwrap();
       console.log('Product added successfully');
-      refetch(); // Refetch the products and update the UI
+      refetch(); 
     } catch (error) {
       console.error('Failed to add product:', error);
     }
