@@ -19,7 +19,7 @@ const UserInfo = () => {
   const isDisabled = selectedItems <= 0;
 
   const [createOrder, {isLoading:loading, isError:error}] = useCreateOrderMutation();
-  const { refetch } = useGetProductsQuery()
+  const { refetch } = useGetProductsQuery({ page: 1, filter: 'all' })
   const navigate = useNavigate()
 
 

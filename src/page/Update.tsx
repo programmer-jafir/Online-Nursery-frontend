@@ -15,7 +15,7 @@ const Update = () => {
   const [rating, setRating] = useState('');
 
   const [editProduct, { data, isLoading, isError, isSuccess }] = useEditProductMutation();
-  const {  refetch  } = useGetProductsQuery();
+  const {  refetch  } = useGetProductsQuery({ page: 1, filter: 'all' });
   const navigate = useNavigate() 
 
   console.log({ data, isLoading, isError, isSuccess });

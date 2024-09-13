@@ -2,7 +2,6 @@ import About from '@/Components/About/About';
 import Contact from '@/Components/Contact/Contact';
 import Hero from '@/Components/Hero/Hero';
 import AllProducts from '@/Components/Products/AllProducts';
-import React from 'react';
 
 const Home = () => {
     return (

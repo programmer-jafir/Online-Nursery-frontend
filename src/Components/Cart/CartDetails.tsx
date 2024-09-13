@@ -9,7 +9,7 @@ const CartDetails = ({ product }: any) => {
     dispatch(clearProduct({ _id: productId }));
   };
 const dispatch = useAppDispatch()
-  const handleQuantity =(type:string,_id:string)=>{
+  const handleQuantity =(type: "increment" | "decrement",_id:string)=>{
     const payload = {type,_id}
     dispatch(updateQuantity(payload))
   }
@@ -40,7 +40,7 @@ const dispatch = useAppDispatch()
         </button>
       </div>
       <button
-        onClick={(e) => handleClearProduct( product._id)}
+        onClick={() => handleClearProduct( product._id)}
         className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
       >
         <Trash2 size={18} />

@@ -8,9 +8,9 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const CardDetails: React.FC = () => {
   const { id } = useParams();
-  const { data } = useGetaProductQuery(id);
+  const { data } = useGetaProductQuery(id as string);
   const [deleteProduct] = useDeleteaProductMutation();
-  const { refetch } = useGetProductsQuery(); // To refetch products
+  const { refetch } = useGetProductsQuery({ page: 1, filter: 'all' }); // To refetch products
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -84,7 +84,7 @@ const CardDetails: React.FC = () => {
             </Button>
             <Link
               className="bg-yellow-500 hover:bg-orange-600 text-white text-base font-medium rounded p-2 px-7 my-2 ml-5"
-              to={`/products/${data?.data?._id}`}
+              to={`/product/${data?.data?._id}`}
             >
               Edit
             </Link>

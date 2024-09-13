@@ -28,7 +28,7 @@ const PostCardModal = () => {
 
   // For Server 
   const [addProduct, {data, isLoading, isError, isSuccess}] = useAddProductMutation();
-  const { refetch } = useGetProductsQuery(); 
+  const { refetch } = useGetProductsQuery({ page: 1, filter: 'all' }); 
   console.log({data,isLoading, isError,isSuccess})
   const onSubmit = async(e: FormEvent) =>{
     e.preventDefault();

@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
     { path: "/", name: "Home" },
     { path: "/about", name: "About" },
     { path: "/contact", name: "Contact" },
-    { path: "/products", name: "Products" },
+    { path: "/product", name: "Products" },
   ];
 
   const handleLinkClick = (path: string) => {

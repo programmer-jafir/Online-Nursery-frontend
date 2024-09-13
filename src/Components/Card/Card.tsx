@@ -14,7 +14,7 @@ interface ProductCardProps {
 const Card: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useAppDispatch()
 
-  const [quantity, setQuantity] = useState( product.quantity);
+  const [quantity] = useState( product.quantity);
 
 
   const handleAddToCart = () => {
@@ -46,7 +46,7 @@ const Card: React.FC<ProductCardProps> = ({ product }) => {
           handleAddToCart()}
           disabled={quantity <= 0}
           className='bg-green-500 hover:bg-lime-600 text-white text-base font-medium rounded p-2 my-2'>Add to Cart</Button>
-        <Link className='bg-yellow-500 hover:bg-orange-600 text-white text-base font-medium rounded p-2 px-7 my-2 ml-5' to={`/products/${product._id}` }>Edit</Link>
+        <Link className='bg-yellow-500 hover:bg-orange-600 text-white text-base font-medium rounded p-2 px-7 my-2 ml-5' to={`/product/${product._id}` }>Edit</Link>
       </div>
     </div>
   );

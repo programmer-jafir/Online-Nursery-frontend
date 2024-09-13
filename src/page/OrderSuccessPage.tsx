@@ -38,7 +38,7 @@ const OrderSuccessPage = () => {
         <div className="bg-gray-100 p-4 rounded-lg mb-6">
           <h2 className="text-lg font-semibold text-gray-700 mb-2">Order Summary</h2>
           <p className="text-gray-600">Total Items: <strong>{selectedItems}</strong></p>
-          <p className="text-gray-600">Total amount: <strong>{Math.floor(totalPrice)}$</strong></p>
+          <p className="text-gray-600">Total amount: <strong>{(totalPrice).toFixed(2)}$</strong></p>
         </div>
 
         <button

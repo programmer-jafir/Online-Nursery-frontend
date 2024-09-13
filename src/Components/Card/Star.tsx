@@ -1,9 +1,9 @@
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 
-const Star = ({ rating }) => {
-  const ratingStar = Array.from({ length: 5 }, (elem, index) => {
-    let number = index + 0.5;
+const Star = ({ rating }:any) => {
+  const ratingStar = Array.from({ length: 5 }, (_elem ,index: number) => { //elem ,
+   const number  = index + 0.5;
     return (
       <span key={index}>
         {rating >= index + 1 ? (
@@ -25,5 +25,4 @@ const Star = ({ rating }) => {
         </div>
   );
 };
-
 export default Star;
