@@ -33,7 +33,7 @@ This is a online nursery shop. You can buy a plant for this shop. Also you can p
   - TypeScript
 
 ## Installation Guideline
-  - Clone the ripo
+  - Clone the repo
   - Run `npm i`
 
 ### Prerequisites
